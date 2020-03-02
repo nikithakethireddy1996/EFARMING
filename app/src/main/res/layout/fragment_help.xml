@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E4CFC8"
+
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/lnkHelpTV"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="Contact Us"
+        android:textColor="#0C0C0F"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/CallBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="150dp"
+        android:background="#098377"
+        android:gravity="center"
+        android:text="6108361856"
+        android:textColor="#F3F9FAF9" />
+
+    <TextView
+        android:id="@+id/TextViewSendFeedbackTV"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:layout_marginTop="250dp"
+        android:textColor="#0C0C0F" />
+
+
+
+</RelativeLayout>

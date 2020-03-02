@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E4CFC8"
+    tools:context=".UserCropInfoActivity">
+
+    <EditText
+        android:id="@+id/setCropNameET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_above="@id/setYearCultivatedET"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#F2FBFDFB"
+        android:ems="10"
+        android:inputType="text"
+        android:padding="15dp"
+        android:text="Crop Name"
+        android:textColor="#FC030703"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.131" />
+
+    <EditText
+        android:id="@+id/setYearCultivatedET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_above="@id/setQuantityCultivatedET"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#F2FBFDFB"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:padding="15dp"
+        android:text="Year Cultivated"
+        android:textColor="#FC030703"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <EditText
+        android:id="@+id/setQuantityCultivatedET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="#F2FBFDFB"
+        android:ems="10"
+        android:padding="15dp"
+        android:inputType="numberDecimal"
+        android:text="Quantity Cultivated"
+        android:textColor="#FC030703"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.314" />
+
+
+    <Button
+        android:id="@+id/saveBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/setQuantityCultivatedET"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:background="#098377"
+        android:text="Save"
+        android:textColor="#F3F9FAF9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.658" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

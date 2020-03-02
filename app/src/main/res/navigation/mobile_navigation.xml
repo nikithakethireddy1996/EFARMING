@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.efarming.ui.user.UserFragment"
+        android:label="@string/menu_user"
+        tools:layout="@layout/fragment_user" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.efarming.ui.crop_analysis.CropAnalysisFragment"
+        android:label="@string/menu_crop_analysis"
+        tools:layout="@layout/fragment_crop_analysis" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.efarming.ui.marketing.MarketingFragment"
+        android:label="@string/menu_marketing"
+        tools:layout="@layout/fragment_marketing" />
+
+    <fragment
+        android:id="@+id/nav_tools"
+        android:name="com.example.efarming.ui.help.HelpFragment"
+        android:label="@string/menu_help"
+        tools:layout="@layout/fragment_help" />
+
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="com.example.efarming.ui.share.ShareFragment"
+        android:label="@string/menu_share"
+        tools:layout="@layout/fragment_share" />
+
+    <fragment
+        android:id="@+id/nav_send"
+        android:name="com.example.efarming.ui.send.SendFragment"
+        android:label="@string/menu_send"
+        tools:layout="@layout/fragment_send" />
+</navigation>
