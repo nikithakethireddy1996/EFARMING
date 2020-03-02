@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E4CFC8"
-
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="#E4CFC8">
 
     <TextView
         android:id="@+id/lnkHelpTV"
@@ -16,26 +16,22 @@
         android:gravity="center"
         android:text="Contact Us"
         android:textColor="#0C0C0F"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/CallBTN"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="196dp"
         android:background="#098377"
         android:gravity="center"
         android:text="6108361856"
-        android:textColor="#F3F9FAF9" />
-
-    <TextView
-        android:id="@+id/TextViewSendFeedbackTV"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:layout_marginTop="250dp"
-        android:textColor="#0C0C0F" />
+        android:textColor="#F3F9FAF9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

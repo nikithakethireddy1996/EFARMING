@@ -49,6 +49,7 @@ public class HelpFragment extends Fragment {
                 startActivity(callIntent);
             }
         });
+
         helpViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
