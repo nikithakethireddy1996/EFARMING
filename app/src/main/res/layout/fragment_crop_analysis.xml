@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CA_Main_Page_Activity"
-    android:background="#EEDD82">
+    android:background="#EEDD82"
+    tools:context=".CA_Main_Page_Activity">
 
     <Button
         android:id="@+id/BlackSoilBTN"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:background="@android:color/black"
         android:paddingStart="5dp"
         android:paddingEnd="5dp"
         android:text="Black Soil"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:background="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,10 +27,10 @@
         android:id="@+id/RedSoilBTN"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_dark"
         android:text="Red Soil"
         android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:background="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -58,7 +58,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Crop Protecion"
+        android:text="Crop Analysis"
         android:textAlignment="center"
         android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="parent"

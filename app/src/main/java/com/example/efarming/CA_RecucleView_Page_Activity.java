@@ -20,7 +20,7 @@ public class CA_RecucleView_Page_Activity extends AppCompatActivity {
     private GestureDetectorCompat detector = null;
 
 
-    private class RecyclerViewOnGestureListener extends GestureDetector.SimpleOnGestureListener{
+    private class RecyclerViewOnGestureListener extends GestureDetector.SimpleOnGestureListener {
         @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
             View view = cpRV.findChildViewUnder(e.getX(), e.getY());
@@ -41,7 +41,6 @@ public class CA_RecucleView_Page_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.crop_analysis_recycleview_page);
-
 
 
         Button addBTN = findViewById(R.id.addBTN);

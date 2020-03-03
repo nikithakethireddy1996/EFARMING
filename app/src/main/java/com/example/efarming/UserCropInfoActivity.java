@@ -11,7 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class UserCropInfoActivity extends AppCompatActivity {
-private Button button1;
+    private Button button1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,21 +22,21 @@ private Button button1;
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(UserCropInfoActivity.this, MainActivity.class);
-                startActivity(in);            }
+                startActivity(in);
+            }
         });
     }
 
 
-
     protected void onStop() {
         super.onStop();
-        Toast toast = Toast.makeText(getApplicationContext(),"Saved successfully",Toast.LENGTH_SHORT);
-        View view =toast.getView();
+        Toast toast = Toast.makeText(getApplicationContext(), "Saved successfully", Toast.LENGTH_SHORT);
+        View view = toast.getView();
         view.setBackgroundColor(Color.BLACK);
         TextView toastMessage = (TextView) toast.getView().findViewById(android.R.id.message);
         toastMessage.setTextColor(Color.WHITE);
         toast.show();
 
     }
-    }
+}
 

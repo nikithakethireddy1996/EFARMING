@@ -11,7 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
-private Button button2;
+    private Button button2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ private Button button2;
             }
         });
     }
+
     private void moveToLoginActivity() {
         Intent in = new Intent(ForgotPasswordActivity.this, LoginActivity.class);
         startActivity(in);
@@ -31,8 +33,8 @@ private Button button2;
 
     protected void onStop() {
         super.onStop();
-        Toast toast = Toast.makeText(getApplicationContext(),"Reset Link sent ",Toast.LENGTH_SHORT);
-        View view =toast.getView();
+        Toast toast = Toast.makeText(getApplicationContext(), "Reset Link sent ", Toast.LENGTH_SHORT);
+        View view = toast.getView();
         view.setBackgroundColor(Color.BLACK);
         TextView toastMessage = (TextView) toast.getView().findViewById(android.R.id.message);
         toastMessage.setTextColor(Color.WHITE);
