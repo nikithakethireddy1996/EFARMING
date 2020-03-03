@@ -25,14 +25,14 @@ public class HelpFragment extends Fragment {
 
     private HelpViewModel helpViewModel;
 
-    Button dropdown=null;
+    Button dropdown = null;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         helpViewModel =
                 ViewModelProviders.of(this).get(HelpViewModel.class);
         View root = inflater.inflate(R.layout.fragment_help, container, false);
-       // final TextView textView = root.findViewById(R.id.text_tools);
+        // final TextView textView = root.findViewById(R.id.text_tools);
 
         dropdown = (Button) root.findViewById(R.id.CallBTN);
 
@@ -53,7 +53,7 @@ public class HelpFragment extends Fragment {
         helpViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-              //  textView.setText(s);
+                //  textView.setText(s);
             }
         });
         return root;

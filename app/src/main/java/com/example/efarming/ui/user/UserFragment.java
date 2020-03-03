@@ -25,7 +25,7 @@ import com.example.efarming.UserCropInfoActivity;
 import static com.example.efarming.R.layout.fragment_user;
 
 public class UserFragment extends Fragment {
-    Spinner dropdown=null;
+    Spinner dropdown = null;
     private UserViewModel userViewModel;
     Button newcropBTN;
 
@@ -35,13 +35,13 @@ public class UserFragment extends Fragment {
         userViewModel =
                 ViewModelProviders.of(this).get(UserViewModel.class);
         View root = inflater.inflate(fragment_user, container, false);
-         dropdown = (Spinner) root.findViewById(R.id.spinner);
+        dropdown = (Spinner) root.findViewById(R.id.spinner);
         initspinnerfooter();
-        newcropBTN=root.findViewById(R.id.newcropBTN);
+        newcropBTN = root.findViewById(R.id.newcropBTN);
         newcropBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent nw=new Intent(getActivity(), UserCropInfoActivity.class);
+                Intent nw = new Intent(getActivity(), UserCropInfoActivity.class);
                 startActivity(nw);
 
             }
@@ -56,25 +56,26 @@ public class UserFragment extends Fragment {
         return root;
 
     }
-        private void initspinnerfooter(){
-            String[] items = new String[]{
-                    "Choose crop","sugarcane", "cotton", "wheat", "paddy"
-            };
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
-            dropdown.setAdapter(adapter);
-            dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    Log.v("item", (String) parent.getItemAtPosition(position));
-                    ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-                }
+    private void initspinnerfooter() {
+        String[] items = new String[]{
+                "Choose crop", "sugarcane", "cotton", "wheat", "paddy"
+        };
 
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-                    // TODO Auto-generated method stub
-                }
-            });
-        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
+        dropdown.setAdapter(adapter);
+        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.v("item", (String) parent.getItemAtPosition(position));
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
     }
+}
 

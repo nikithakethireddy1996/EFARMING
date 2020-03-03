@@ -12,7 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class RegisterActivity1 extends AppCompatActivity {
-private Button button1;
+    private Button button1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,10 +22,11 @@ private Button button1;
         button1 = (Button) findViewById(R.id.registerBTN);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { moveToMainActivity();
+            public void onClick(View v) {
+                moveToMainActivity();
             }
         });
-        TextView login = (TextView)findViewById(R.id.lnkLoginTV);
+        TextView login = (TextView) findViewById(R.id.lnkLoginTV);
         login.setMovementMethod(LinkMovementMethod.getInstance());
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,6 +37,7 @@ private Button button1;
             }
         });
     }
+
     private void moveToMainActivity() {
         Intent in = new Intent(RegisterActivity1.this, MainActivity.class);
         startActivity(in);
@@ -42,8 +45,8 @@ private Button button1;
 
     protected void onStop() {
         super.onStop();
-        Toast toast = Toast.makeText(getApplicationContext(),"Registered successfully",Toast.LENGTH_SHORT);
-        View view =toast.getView();
+        Toast toast = Toast.makeText(getApplicationContext(), "Registered successfully", Toast.LENGTH_SHORT);
+        View view = toast.getView();
         view.setBackgroundColor(Color.BLACK);
         TextView toastMessage = (TextView) toast.getView().findViewById(android.R.id.message);
         toastMessage.setTextColor(Color.WHITE);
