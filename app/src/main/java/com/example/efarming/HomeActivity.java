@@ -17,7 +17,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    sleep(10000);
+                    sleep(6000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {

@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.efarming.R;
 import com.example.efarming.UserCropInfoActivity;
+import com.example.efarming.ViewInfoActivity;
 
 import static com.example.efarming.R.layout.fragment_user;
 
@@ -28,6 +29,7 @@ public class UserFragment extends Fragment {
     Spinner dropdown = null;
     private UserViewModel userViewModel;
     Button newcropBTN;
+    Button infoBTN;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -38,6 +40,15 @@ public class UserFragment extends Fragment {
         dropdown = (Spinner) root.findViewById(R.id.spinner);
         initspinnerfooter();
         newcropBTN = root.findViewById(R.id.newcropBTN);
+        infoBTN=root.findViewById(R.id.infoBTN);
+
+        infoBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in=new Intent(getContext(), ViewInfoActivity.class);
+                startActivity(in);
+            }
+        });
         newcropBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
