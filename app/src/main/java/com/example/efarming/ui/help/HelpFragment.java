@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -19,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.efarming.MainActivity;
 import com.example.efarming.R;
 
 public class HelpFragment extends Fragment {
@@ -29,6 +31,16 @@ public class HelpFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        OnBackPressedCallback callback = new OnBackPressedCallback(
+                true
+        ) {
+            @Override
+            public void handleOnBackPressed() {
+                Intent ini = new Intent(getActivity(), MainActivity.class);
+                startActivity(ini);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
         helpViewModel =
                 ViewModelProviders.of(this).get(HelpViewModel.class);
         View root = inflater.inflate(R.layout.fragment_help, container, false);
