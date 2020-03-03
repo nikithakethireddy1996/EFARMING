@@ -29,6 +29,7 @@ public class UserFragment extends Fragment {
     private UserViewModel userViewModel;
     Button newcropBTN;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         userViewModel =
@@ -45,6 +46,8 @@ public class UserFragment extends Fragment {
 
             }
         });
+
+
         userViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
