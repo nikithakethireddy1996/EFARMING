@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CA_Main_Page_Activity">
+    tools:context=".CA_Main_Page_Activity"
+    android:background="#EEDD82">
 
     <Button
         android:id="@+id/BlackSoilBTN"
