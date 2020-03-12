@@ -9,11 +9,15 @@
 
     <EditText
         android:id="@+id/commentET"
-        android:layout_width="319dp"
+        android:layout_width="match_parent"
         android:layout_height="193dp"
         android:ems="10"
         android:gravity="start|top"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:hint="Please enter a comment"
+        android:background="#F2FBFDFB"
+        android:textColor="#FC030703"
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,63 +25,90 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.882" />
 
+
     <EditText
         android:id="@+id/nameET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:ems="10"
-        android:hint="Please enter your name"
         android:inputType="textPersonName"
+        android:padding="15dp"
+        android:hint="Please enter your name"
+        android:background="@drawable/green_bg"
+        android:textColorHint="#F2FBFDFB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.188" />
 
+
     <EditText
         android:id="@+id/titleET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:ems="10"
-        android:hint="Please enter a title"
         android:inputType="textPersonName"
+        android:padding="15dp"
+        android:hint="Please enter your title"
+        android:background="@drawable/green_bg"
+        android:textColorHint="#F2FBFDFB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.301" />
 
+
+
     <EditText
         android:id="@+id/cropET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:ems="10"
-        android:hint="Please type of crop"
         android:inputType="textPersonName"
+        android:padding="15dp"
+        android:hint="Please enter type of crop"
+        android:background="@drawable/green_bg"
+        android:textColorHint="#F2FBFDFB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.409" />
 
+
+
     <EditText
         android:id="@+id/temperatureET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:ems="10"
-        android:hint="Temperature used"
         android:inputType="textPersonName"
+        android:padding="15dp"
+        android:hint="Temperature used"
+        android:background="@drawable/green_bg"
+        android:textColorHint="#F2FBFDFB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.523" />
 
+
     <TextView
         android:id="@+id/inputTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create a New Article"
+        android:text="Add a New Crop Article"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

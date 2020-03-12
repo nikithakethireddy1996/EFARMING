@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="450dp"
         android:text="This page helps the user to stoe the information about the crops which he cultivated
-         in the previous years and he can store them in the app"
+        in the previous years and he can store them in the app"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

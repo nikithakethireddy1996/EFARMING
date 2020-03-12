@@ -23,6 +23,8 @@
         android:layout_width="271dp"
         android:layout_height="51dp"
         android:background="@color/design_default_color_on_primary"
+        android:queryHint="Search markets.."
+        android:iconifiedByDefault="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
