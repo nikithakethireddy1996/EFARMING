@@ -40,10 +40,10 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="#098377"
+        android:layout_margin="20dp"
+        android:background="@drawable/green_bg"
         android:inputType="text"
         android:padding="10dp"
         android:text="Crop Names"
