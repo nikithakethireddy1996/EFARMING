@@ -5,7 +5,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EEDD82">
+    android:background="@drawable/backgroundimage">
 
 
     <Button
@@ -17,9 +17,9 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="26dp"
         android:layout_marginBottom="20dp"
-        android:background="#098377"
         android:text="New Crop"
-        android:textColor="#FAFAFC"
+        android:background="@drawable/gradient"
+        android:textColor="#F3FFFAFA"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,9 +31,9 @@
         android:layout_marginLeft="168dp"
         android:layout_marginTop="464dp"
         android:layout_weight="1"
-        android:background="#098377"
         android:text="View Info"
-        android:textColor="#FAFAFC"
+        android:background="@drawable/gradient"
+        android:textColor="#F3FFFAFA"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

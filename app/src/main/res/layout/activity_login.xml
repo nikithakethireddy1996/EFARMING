@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EEDD82"
+    android:background="@drawable/backgroundimage"
     tools:context=".LoginActivity">
 
     <EditText
@@ -52,9 +52,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
-        android:background="#098377"
         android:text="Login"
-        android:textColor="#F3F9FAF9"
+        android:background="@drawable/gradient"
+        android:textColor="#F3FFFAFA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -69,7 +69,7 @@
         android:gravity="center"
         android:text="New to E-FARMING ? Register here"
         android:textColor="#0C0C0F"
-        android:textSize="20dp"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -84,7 +84,7 @@
         android:gravity="center"
         android:text="Forgot password? Click here"
         android:textColor="#098377"
-        android:textSize="15dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

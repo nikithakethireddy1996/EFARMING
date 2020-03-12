@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EEDD82"
+    android:background="@drawable/backgroundimage"
     tools:context=".RegisterActivity1">
 
 
@@ -112,9 +112,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
-        android:background="#098377"
         android:hint="Register"
-        android:textColor="#F3F9FAF9"
+        android:background="@drawable/gradient"
+        android:textColor="#F3FFFAFA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.532"
