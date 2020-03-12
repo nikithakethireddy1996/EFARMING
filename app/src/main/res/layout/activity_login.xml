@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:background="@drawable/backgroundimage"
     tools:context=".LoginActivity">
 
@@ -64,12 +65,15 @@
 
     <TextView
         android:id="@+id/lnkRegisterTV"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="New to E-FARMING ? Register here"
-        android:textColor="#3EFFC107"
-        android:textSize="25dp"
+        android:textColor="#F3FFFAFA"
+        android:background="#F3090808"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -79,12 +83,15 @@
 
     <TextView
         android:id="@+id/lnkForgotpasswordTV"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:text="Forgot password? Click here"
-        android:textColor="#062EA2"
-        android:textSize="20dp"
+        android:textColor="#F3FFFAFA"
+        android:background="#F3090808"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

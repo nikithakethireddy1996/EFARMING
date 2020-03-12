@@ -104,6 +104,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.516" />
 
+
     <Button
         android:id="@+id/registerBTN"
         android:layout_width="wrap_content"
@@ -112,7 +113,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
-        android:hint="Register"
+        android:text="Register"
         android:background="@drawable/gradient"
         android:textColor="#F3FFFAFA"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -128,8 +129,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Already a user? Login here"
-        android:textColor="#09090A"
-        android:textSize="20dp"
+        android:textColor="#F3FFFAFA"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
