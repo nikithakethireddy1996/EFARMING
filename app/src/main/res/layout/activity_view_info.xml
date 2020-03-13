@@ -7,12 +7,21 @@
     android:background="@drawable/backgroundimage"
     tools:context=".ViewInfoActivity">
 
-    <TextView
+
+
+    <EditText
         android:id="@+id/viewInfoTV"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:text="This page helps the user to stoe the information about the crops which he cultivated
-        in the previous years and he can store them in the app"
+        android:ems="10"
+        android:gravity="start|top"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:hint="This page helps the user to store the information about the crops which he cultivated in the previous years and he can store them in the app"
+        android:background="#F2FBFDFB"
+        android:textColor="#FC030703"
+        android:inputType="textMultiLine"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

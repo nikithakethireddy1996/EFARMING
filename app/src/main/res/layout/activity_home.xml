@@ -11,11 +11,12 @@
     <TextView
         android:id="@id/efarmingTV"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:text="E-FARMING"
-        android:textColor="#F3F9FAF9"
-        android:textSize="40dp">
+        android:textStyle="italic"
+        android:textColor="#F5EFFA57"
+        android:textSize="45dp">
 
     </TextView>
 

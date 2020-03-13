@@ -10,7 +10,7 @@ public class ShareViewModel extends ViewModel {
 
     public ShareViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is share fragment");
+        mText.setValue("This page is useful for sharing the link of their application to facebook , whatsapp etc");
     }
 
     public LiveData<String> getText() {
