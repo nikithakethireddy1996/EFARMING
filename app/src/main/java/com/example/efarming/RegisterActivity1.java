@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegisterActivity1 extends AppCompatActivity {
     private Button registerBTN;
     EditText setFirstNameET,setLastNameET,setpasswordET,setemailET,setphoneET;
@@ -35,6 +38,11 @@ public class RegisterActivity1 extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"All fields must be filled",Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if (setpasswordET.getText().toString().length()<8 &&!PasswordValidation(setpasswordET.getText().toString())){
+                    Toast.makeText(getApplicationContext(),"password must contain minimum 8 characters with at least" +
+                            "1 Alphabet,1 Number and 1 special character",Toast.LENGTH_LONG).show();
+                    return;
+                }
                 Intent intent = new Intent(RegisterActivity1.this, LoginActivity.class);
                 startActivity(intent);
             }
@@ -48,6 +56,15 @@ public class RegisterActivity1 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public static boolean PasswordValidation(final String password) {
+        Pattern pattern;
+        Matcher matcher;
+        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(password);
+        return matcher.matches();
     }
 
     private void moveToMainActivity() {
