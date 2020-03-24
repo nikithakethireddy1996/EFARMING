@@ -26,8 +26,7 @@ import com.example.efarming.R;
 public class HelpFragment extends Fragment {
 
     private HelpViewModel helpViewModel;
-
-    Button dropdown = null;
+    Button dropdown;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -41,18 +40,16 @@ public class HelpFragment extends Fragment {
             }
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
-        helpViewModel =
-                ViewModelProviders.of(this).get(HelpViewModel.class);
+        helpViewModel = ViewModelProviders.of(this).get(HelpViewModel.class);
         View root = inflater.inflate(R.layout.fragment_help, container, false);
-        // final TextView textView = root.findViewById(R.id.text_tools);
+        //final TextView textView = root.findViewById(R.id.text_tools);
 
         dropdown = (Button) root.findViewById(R.id.CallBTN);
-
         dropdown.setOnClickListener(new View.OnClickListener() {
-            @Override
+           @Override
             public void onClick(View v) {
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel:0377778888"));
+                callIntent.setData(Uri.parse("tel:6108361856"));
 
                 if (ActivityCompat.checkSelfPermission(getActivity(),
                         Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -70,4 +67,6 @@ public class HelpFragment extends Fragment {
         });
         return root;
     }
+
+
 }
