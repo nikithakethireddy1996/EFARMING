@@ -58,6 +58,7 @@
         android:ems="10"
         android:padding="15dp"
         android:hint="Password"
+        android:inputType="textPassword"
         android:background="@drawable/green_bg"
         android:textColorHint="#F2FBFDFB"
         android:textColor="#F2FBFDFB"

@@ -13,18 +13,30 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class RegisterActivity1 extends AppCompatActivity {
-    private Button button1;
+    private Button registerBTN;
+    EditText setFirstNameET,setLastNameET,setpasswordET,setemailET,setphoneET;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register1);
         //Toast.makeText(getApplicationContext(),"Hello Javatpoint",Toast.LENGTH_SHORT).show();
-        button1 = (Button) findViewById(R.id.registerBTN);
-        button1.setOnClickListener(new View.OnClickListener() {
+        registerBTN = (Button) findViewById(R.id.registerBTN);
+        setFirstNameET = (EditText)findViewById(R.id.setFirstNameET);
+        setLastNameET = (EditText)findViewById(R.id.setLastNameET);
+        setpasswordET = (EditText)findViewById(R.id.setpasswordET);
+        setemailET = (EditText)findViewById(R.id.setemailET);
+        setphoneET = (EditText)findViewById(R.id.setphoneET);
+        registerBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToMainActivity();
+                if (setFirstNameET.length()==0 || setLastNameET.length()==0 || setpasswordET.length()==0
+                || setemailET.length()==0 || setphoneET.length()==0){
+                    Toast.makeText(getApplicationContext(),"All fields must be filled",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Intent intent = new Intent(RegisterActivity1.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
         TextView login = (TextView) findViewById(R.id.lnkLoginTV);
@@ -34,7 +46,6 @@ public class RegisterActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(RegisterActivity1.this, LoginActivity.class);
                 startActivity(intent);
-
             }
         });
     }
@@ -47,12 +58,11 @@ public class RegisterActivity1 extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         Toast toast = Toast.makeText(getApplicationContext(), "Registered successfully", Toast.LENGTH_SHORT);
-        View view = toast.getView();
-        view.setBackgroundColor(Color.BLACK);
+//        View view = toast.getView();
+//        view.setBackgroundColor(Color.BLACK);
         TextView toastMessage = (TextView) toast.getView().findViewById(android.R.id.message);
         toastMessage.setTextColor(Color.WHITE);
         toast.show();
-
     }
 
 }
