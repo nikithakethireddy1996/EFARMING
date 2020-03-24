@@ -9,18 +9,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.efarming.R;
 
 public class LoginActivity extends AppCompatActivity {
-    private Button button;
-    private EditText userN;
-    private EditText passW;
+    Button loginBTN;
+    EditText userNameET;
+    EditText passwordET;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        userNameET = (EditText)findViewById(R.id.userNameET);
+        passwordET = (EditText)findViewById(R.id.passwordET);
+        loginBTN = (Button)findViewById(R.id.loginBTN);
         TextView register = (TextView) findViewById(R.id.lnkRegisterTV);
         register.setMovementMethod(LinkMovementMethod.getInstance());
         register.setOnClickListener(new View.OnClickListener() {
@@ -31,12 +35,25 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        TextView login = (TextView) findViewById(R.id.loginBTN);
-        login.setOnClickListener(new View.OnClickListener() {
+        loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
+                if (userNameET.length()==0){
+                    Toast.makeText(getApplicationContext(),"username must be filled", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (passwordET.length()==0){
+                    Toast.makeText(getApplicationContext(),"password must be filled", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (userNameET.getText().toString().equalsIgnoreCase("efarming@gmail.com")
+                        && passwordET.getText().toString().equalsIgnoreCase("farming")){
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                else if (!(userNameET.getText().toString().equalsIgnoreCase("efarming@gmail.com")
+                        && passwordET.getText().toString().equalsIgnoreCase("farming")))
+                Toast.makeText(getApplicationContext(),"username or password is incorrect", Toast.LENGTH_SHORT).show();
             }
         });
 
