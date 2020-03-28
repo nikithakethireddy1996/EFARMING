@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
@@ -47,6 +48,11 @@ public class RegisterActivity1 extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Email address should be of valid format",Toast.LENGTH_LONG).show();
                     return;
                 }
+                if (!isValidphone(setphoneET.getText().toString())){
+                    Toast.makeText(getApplicationContext(),"Phone number should be of valid format",Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 Toast toast = Toast.makeText(getApplicationContext(), "Registered successfully", Toast.LENGTH_SHORT);
                 TextView toastMessage = (TextView) toast.getView().findViewById(android.R.id.message);
                 toastMessage.setTextColor(Color.BLACK);
@@ -80,6 +86,20 @@ public class RegisterActivity1 extends AppCompatActivity {
         Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
+    }
+
+    /*public boolean validCellPhone(final String phone)
+    {
+        final String regexStr = "^[0-9]$";
+        Pattern pattern = Pattern.compile(regexStr);
+        Matcher matcher = pattern.matcher(phone);
+        return matcher.matches();
+    }*/
+
+    private boolean isValidphone(String bphone) {
+        return !TextUtils.isEmpty(bphone) &&
+                bphone.length() == 10 &&
+                TextUtils.isDigitsOnly(bphone);
     }
 
 
