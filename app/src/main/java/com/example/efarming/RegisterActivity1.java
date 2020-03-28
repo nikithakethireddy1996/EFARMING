@@ -43,9 +43,13 @@ public class RegisterActivity1 extends AppCompatActivity {
                             "1 Alphabet,1 Number and 1 special character",Toast.LENGTH_LONG).show();
                     return;
                 }
+                if (!isEmailValid(setemailET.getText().toString())){
+                    Toast.makeText(getApplicationContext(),"Email address should be of valid format",Toast.LENGTH_LONG).show();
+                    return;
+                }
                 Toast toast = Toast.makeText(getApplicationContext(), "Registered successfully", Toast.LENGTH_SHORT);
                 TextView toastMessage = (TextView) toast.getView().findViewById(android.R.id.message);
-                toastMessage.setTextColor(Color.WHITE);
+                toastMessage.setTextColor(Color.BLACK);
                 toast.show();
                 Intent intent = new Intent(RegisterActivity1.this, LoginActivity.class);
                 startActivity(intent);
@@ -70,6 +74,14 @@ public class RegisterActivity1 extends AppCompatActivity {
         matcher = pattern.matcher(password);
         return matcher.matches();
     }
+
+    public static boolean isEmailValid(final String email) {
+        final String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
 
     private void moveToMainActivity() {
         Intent in = new Intent(RegisterActivity1.this, MainActivity.class);
