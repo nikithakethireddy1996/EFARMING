@@ -88,13 +88,6 @@ public class RegisterActivity1 extends AppCompatActivity {
         return matcher.matches();
     }
 
-    /*public boolean validCellPhone(final String phone)
-    {
-        final String regexStr = "^[0-9]$";
-        Pattern pattern = Pattern.compile(regexStr);
-        Matcher matcher = pattern.matcher(phone);
-        return matcher.matches();
-    }*/
 
     private boolean isValidphone(String bphone) {
         return !TextUtils.isEmpty(bphone) &&
