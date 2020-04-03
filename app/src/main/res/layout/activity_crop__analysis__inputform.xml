@@ -56,7 +56,7 @@
         android:inputType="textPersonName"
         android:padding="15dp"
         android:textColor="#F2FBFDFB"
-        android:hint="Please enter your title"
+        android:hint="Please enter herbicides,insecticides used"
         android:background="@drawable/green_bg"
         android:textColorHint="#F2FBFDFB"
         app:layout_constraintBottom_toBottomOf="parent"
