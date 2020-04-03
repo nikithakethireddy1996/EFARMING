@@ -42,6 +42,12 @@ public class UserCropInfoActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"All the required fields must be filled",Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                Toast toast = Toast.makeText(getApplicationContext(), "Saved successfully", Toast.LENGTH_SHORT);
+                TextView toastMessage = (TextView) toast.getView().findViewById(android.R.id.message);
+                toastMessage.setTextColor(Color.BLACK);
+                toast.show();
+
                 Intent in = new Intent(UserCropInfoActivity.this, MainActivity.class);
                 startActivity(in);
             }
