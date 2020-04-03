@@ -77,7 +77,7 @@
         android:inputType="textPersonName"
         android:padding="15dp"
         android:textColor="#F2FBFDFB"
-        android:hint="Please enter type of crop"
+        android:hint="Please enter quantity of resources used"
         android:background="@drawable/green_bg"
         android:textColorHint="#F2FBFDFB"
         app:layout_constraintBottom_toBottomOf="parent"
