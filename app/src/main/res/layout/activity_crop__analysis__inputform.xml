@@ -35,7 +35,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:padding="15dp"
-        android:hint="Please enter your name"
+        android:hint="Please enter your crop name"
         android:background="@drawable/green_bg"
         android:textColorHint="#F2FBFDFB"
         android:textColor="#F2FBFDFB"
