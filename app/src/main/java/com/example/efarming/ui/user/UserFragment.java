@@ -82,7 +82,7 @@ public class UserFragment extends Fragment {
 
     private void initspinnerfooter() {
         String[] items = new String[]{
-                "Choose crop", "sugarcane", "cotton", "wheat", "paddy" , "rice"
+                "Choose crop", "sugarcane", "cotton", "wheat", "paddy" , "rice" , "corn"
         };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
