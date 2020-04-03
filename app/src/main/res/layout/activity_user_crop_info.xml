@@ -89,6 +89,26 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.414" />
 
+    <EditText
+        android:id="@+id/setAmountSpendET"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/green_bg"
+        android:ems="10"
+        android:hint="Total amount spent on crop"
+        android:inputType="numberDecimal"
+        android:padding="15dp"
+        android:textColor="#F3FFFAFA"
+        android:textColorHint="#F3FFFAFA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.511" />
+
     <Button
         android:id="@+id/saveBTN"
         android:layout_width="wrap_content"
