@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,6 +35,9 @@ public class Crop_Analysis_Inputform extends AppCompatActivity {
                 String comment = commentET.toString();
 
                 soil.addBlackSoil(name, title, crop, temperature, comment);
+
+                Toast.makeText(getApplicationContext(),
+                        "Your Article was Saved!", Toast.LENGTH_SHORT).show();
             }
         });
     }
