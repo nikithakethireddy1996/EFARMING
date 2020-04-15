@@ -23,6 +23,8 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.efarming.MainActivity;
 import com.example.efarming.R;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
+
 public class HelpFragment extends Fragment {
 
     private HelpViewModel helpViewModel;
@@ -48,14 +50,23 @@ public class HelpFragment extends Fragment {
         dropdown.setOnClickListener(new View.OnClickListener() {
            @Override
             public void onClick(View v) {
-                Intent callIntent = new Intent(Intent.ACTION_CALL);
+               buttonPressed(v);
+           }
+               /* Intent callIntent = new Intent(Intent.ACTION_CALL);
                 callIntent.setData(Uri.parse("tel:6108361856"));
 
                 if (ActivityCompat.checkSelfPermission(getActivity(),
                         Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     return;
-                }
-                startActivity(callIntent);
+                }*/
+               // startActivity(callIntent);
+               public void buttonPressed(View v) {
+                   Button clicked = (Button) v;
+                   if(clicked.getId() == R.id.CallBTN) {
+                       Uri number = Uri.parse("tel:+16108361856");
+                       Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
+                       startActivity(callIntent);
+                   }
             }
         });
 
@@ -67,6 +78,5 @@ public class HelpFragment extends Fragment {
         });
         return root;
     }
-
-
 }
+

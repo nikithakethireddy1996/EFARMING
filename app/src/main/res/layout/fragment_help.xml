@@ -34,11 +34,25 @@
         android:layout_marginStart="160dp"
         android:layout_marginTop="196dp"
         android:gravity="center"
-        android:text="6108361856"
         android:background="@drawable/gradient"
         android:textColor="#F3FFFAFA"
+        android:text="+1 (660) 528-0951"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!--<Button
+        android:id="@+id/mobile1BTN"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_gray"
+        android:paddingLeft="15dp"
+        android:drawablePadding="10dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:onClick="buttonPressed"
+        android:text="+1 (660) 528-0951 : Deepthi"
+        android:textStyle="bold" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,16 +12,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.efarming.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
-    Button loginBTN;
-    EditText userNameET;
-    EditText passwordET;
+    private Button loginBTN;
+    private EditText userNameET;
+    private EditText passwordET;
+    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mAuth = FirebaseAuth.getInstance();
+
         userNameET = (EditText)findViewById(R.id.userNameET);
         passwordET = (EditText)findViewById(R.id.passwordET);
         loginBTN = (Button)findViewById(R.id.loginBTN);
