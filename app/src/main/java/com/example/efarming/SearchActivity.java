@@ -1,21 +1,36 @@
 package com.example.efarming;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.SearchView;
+import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -23,6 +38,8 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
     GoogleMap map;
     SupportMapFragment mapFragment;
     SearchView searchView;
+    private ArrayList<LatLng> latlngs = new ArrayList<>();
+    private MarkerOptions options = new MarkerOptions();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,19 +52,25 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
             @Override
             public boolean onQueryTextSubmit(String query) {
                 String location = searchView.getQuery().toString();
-                List<Address> addressList = null;
 
-                if(location != null || !location.equals("")){
-                    Geocoder geocoder = new Geocoder(SearchActivity.this);
-                    try {
-                        addressList = geocoder.getFromLocationName(location,1);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                if(location != null || !location.equals("") || location.equals("grapes")){
+                    latlngs.add(new LatLng(38.384401, -100.782266));
+                    latlngs.add(new LatLng(39.683452, -97.666177));
+                    latlngs.add(new LatLng(40.333804, -94.872031));
+                    latlngs.add(new LatLng(39.108342, -94.614589));
+                    latlngs.add(new LatLng(38.181654, -97.339199));
+                    LatLngBounds.Builder builder = new LatLngBounds.Builder();
+                    for (LatLng p: latlngs){
+                        options.position(p);
+                        options.title("grapes");
+                        options.snippet("grapesInfo");
+                        map.addMarker(options);
+                        builder.include(options.getPosition());
                     }
-                    Address address = addressList.get(0);
-                    LatLng latLng = new LatLng(address.getLatitude(),address.getLongitude());
-                    map.addMarker(new MarkerOptions().position(latLng).title(location));
-                    map.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
+                    LatLngBounds bounds = builder.build();
+                   // offset from edges of the map in pixels
+                    CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, 100);
+                    map.moveCamera(cu);
                 }
                 return false;
             }
@@ -61,8 +84,10 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
         mapFragment.getMapAsync(this);
     }
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map=googleMap;
     }
+    
 }
