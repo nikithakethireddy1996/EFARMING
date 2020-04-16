@@ -11,14 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.efarming.R;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     private Button loginBTN;
     private EditText userNameET;
     private EditText passwordET;
-    private FirebaseAuth mAuth;
 
 
     @Override
@@ -26,7 +23,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mAuth = FirebaseAuth.getInstance();
 
         userNameET = (EditText)findViewById(R.id.userNameET);
         passwordET = (EditText)findViewById(R.id.passwordET);
