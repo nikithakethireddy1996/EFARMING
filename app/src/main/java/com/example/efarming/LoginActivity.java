@@ -1,5 +1,6 @@
 package com.example.efarming;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,11 +12,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class LoginActivity extends AppCompatActivity {
     private Button loginBTN;
     private EditText userNameET;
     private EditText passwordET;
+    FirebaseAuth fAuth;
 
 
     @Override
@@ -23,10 +30,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         userNameET = (EditText)findViewById(R.id.userNameET);
         passwordET = (EditText)findViewById(R.id.passwordET);
         loginBTN = (Button)findViewById(R.id.loginBTN);
+        fAuth = FirebaseAuth.getInstance();
         TextView register = (TextView) findViewById(R.id.lnkRegisterTV);
         register.setMovementMethod(LinkMovementMethod.getInstance());
         register.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +47,8 @@ public class LoginActivity extends AppCompatActivity {
         loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String email = userNameET.getText().toString();
+                String password = passwordET.getText().toString();
                 if (userNameET.length()==0){
                     Toast.makeText(getApplicationContext(),"username must be filled", Toast.LENGTH_SHORT).show();
                     return;
@@ -56,7 +65,21 @@ public class LoginActivity extends AppCompatActivity {
                 else if (!(userNameET.getText().toString().equals("efarming@gmail.com")
                         && passwordET.getText().toString().equals("farm@1234")))
                 Toast.makeText(getApplicationContext(),"username or password is incorrect", Toast.LENGTH_SHORT).show();
+                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(),"Logged in Successfully!",Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast.makeText(LoginActivity.this,"could not login",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
+
         });
 
         TextView forgotpassword = (TextView) findViewById(R.id.lnkForgotpasswordTV);

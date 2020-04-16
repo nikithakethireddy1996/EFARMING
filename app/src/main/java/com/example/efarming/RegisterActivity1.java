@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +26,7 @@ import java.util.regex.Pattern;
 
 public class RegisterActivity1 extends AppCompatActivity {
     Button registerBTN;
+    TextView lnkLoginTV;
     EditText setFirstNameET,setLastNameET,setpasswordET,setemailET,setphoneET;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
@@ -39,6 +41,7 @@ public class RegisterActivity1 extends AppCompatActivity {
         setpasswordET = findViewById(R.id.setpasswordET);
         setemailET = findViewById(R.id.setemailET);
         setphoneET = findViewById(R.id.setphoneET);
+        lnkLoginTV = findViewById(R.id.lnkLoginTV);
         mAuth = FirebaseAuth.getInstance();
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
@@ -89,6 +92,13 @@ public class RegisterActivity1 extends AppCompatActivity {
                         }
                     }
                 });
+            }
+        });
+        lnkLoginTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity1.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
     }
