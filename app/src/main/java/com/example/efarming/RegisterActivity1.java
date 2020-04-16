@@ -1,5 +1,6 @@
 package com.example.efarming;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,30 +11,50 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public class RegisterActivity1 extends AppCompatActivity {
-    private Button registerBTN;
+    Button registerBTN;
     EditText setFirstNameET,setLastNameET,setpasswordET,setemailET,setphoneET;
+    FirebaseAuth mAuth;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register1);
-        //Toast.makeText(getApplicationContext(),"Hello Javatpoint",Toast.LENGTH_SHORT).show();
-        registerBTN = (Button) findViewById(R.id.registerBTN);
-        setFirstNameET = (EditText)findViewById(R.id.setFirstNameET);
-        setLastNameET = (EditText)findViewById(R.id.setLastNameET);
-        setpasswordET = (EditText)findViewById(R.id.setpasswordET);
-        setemailET = (EditText)findViewById(R.id.setemailET);
-        setphoneET = (EditText)findViewById(R.id.setphoneET);
+        registerBTN  = findViewById(R.id.registerBTN);
+        setFirstNameET = findViewById(R.id.setFirstNameET);
+        setLastNameET = findViewById(R.id.setLastNameET);
+        setpasswordET = findViewById(R.id.setpasswordET);
+        setemailET = findViewById(R.id.setemailET);
+        setphoneET = findViewById(R.id.setphoneET);
+        mAuth = FirebaseAuth.getInstance();
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
         registerBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String email = setemailET.getText().toString().trim();
+                String password  = setpasswordET.getText().toString().trim();
+//                if (TextUtils.isEmpty(email)){
+//                    setemailET.setError("email is req");
+//                    return;
+//                }
+//                if (TextUtils.isEmpty(password)){
+//                    setpasswordET.setError("password is req");
+//                    return;
+//                }
                 if (setFirstNameET.length()==0 || setLastNameET.length()==0 || setpasswordET.length()==0
                 || setemailET.length()==0 || setphoneET.length()==0){
                     Toast.makeText(getApplicationContext(),"All fields must be filled",Toast.LENGTH_SHORT).show();
@@ -52,22 +73,22 @@ public class RegisterActivity1 extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Phone number should be of valid format",Toast.LENGTH_LONG).show();
                     return;
                 }
-
-                Toast toast = Toast.makeText(getApplicationContext(), "Registered successfully", Toast.LENGTH_SHORT);
-                TextView toastMessage = (TextView) toast.getView().findViewById(android.R.id.message);
-                toastMessage.setTextColor(Color.BLACK);
-                toast.show();
-                Intent intent = new Intent(RegisterActivity1.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-        TextView login = (TextView) findViewById(R.id.lnkLoginTV);
-        login.setMovementMethod(LinkMovementMethod.getInstance());
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(RegisterActivity1.this, LoginActivity.class);
-                startActivity(intent);
+                progressBar.setVisibility(View.VISIBLE);
+                mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(getApplicationContext(),"Registered Successfully!",Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(RegisterActivity1.this, LoginActivity.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            progressBar.setVisibility(View.GONE);
+                            Toast.makeText(RegisterActivity1.this,"could not register",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
     }
@@ -95,21 +116,6 @@ public class RegisterActivity1 extends AppCompatActivity {
                 TextUtils.isDigitsOnly(bphone);
     }
 
-
-    private void moveToMainActivity() {
-        Intent in = new Intent(RegisterActivity1.this, MainActivity.class);
-        startActivity(in);
-    }
-
-//    protected void onStop() {
-//        super.onStop();
-//        Toast toast = Toast.makeText(getApplicationContext(), "Registered successfully", Toast.LENGTH_SHORT);
-//        View view = toast.getView();
-//        view.setBackgroundColor(Color.BLACK);
-//        TextView toastMessage = (TextView) toast.getView().findViewById(android.R.id.message);
-//        toastMessage.setTextColor(Color.WHITE);
-//        toast.show();
-//    }
 
 }
 
