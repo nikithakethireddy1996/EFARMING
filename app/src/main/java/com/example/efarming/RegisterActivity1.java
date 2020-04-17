@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,10 +17,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,7 +35,9 @@ public class RegisterActivity1 extends AppCompatActivity {
     TextView lnkLoginTV;
     EditText setFirstNameET,setLastNameET,setpasswordET,setemailET,setphoneET;
     FirebaseAuth mAuth;
+    FirebaseFirestore firebaseFirestore;
     ProgressBar progressBar;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,21 +51,17 @@ public class RegisterActivity1 extends AppCompatActivity {
         setphoneET = findViewById(R.id.setphoneET);
         lnkLoginTV = findViewById(R.id.lnkLoginTV);
         mAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
         registerBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = setemailET.getText().toString().trim();
+                final String email = setemailET.getText().toString().trim();
                 String password  = setpasswordET.getText().toString().trim();
-//                if (TextUtils.isEmpty(email)){
-//                    setemailET.setError("email is req");
-//                    return;
-//                }
-//                if (TextUtils.isEmpty(password)){
-//                    setpasswordET.setError("password is req");
-//                    return;
-//                }
+                final String frstname = setFirstNameET.getText().toString();
+                final String lstname = setLastNameET.getText().toString();
+                final String Phone = setphoneET.getText().toString();
                 if (setFirstNameET.length()==0 || setLastNameET.length()==0 || setpasswordET.length()==0
                 || setemailET.length()==0 || setphoneET.length()==0){
                     Toast.makeText(getApplicationContext(),"All fields must be filled",Toast.LENGTH_SHORT).show();
@@ -83,6 +87,19 @@ public class RegisterActivity1 extends AppCompatActivity {
                         if (task.isSuccessful()){
                             progressBar.setVisibility(View.GONE);
                             Toast.makeText(getApplicationContext(),"Registered Successfully!",Toast.LENGTH_SHORT).show();
+                            userId = mAuth.getCurrentUser().getUid();
+                            DocumentReference documentReference = firebaseFirestore.collection("usersList").document(userId);
+                            Map<String,Object> user = new HashMap<>();
+                            user.put("FirstName",frstname);
+                            user.put("LastName",lstname);
+                            user.put("EmailId",email);
+                            user.put("Phone",Phone);
+                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d("TAG","user data created"+userId);
+                                }
+                            });
                             Intent intent = new Intent(RegisterActivity1.this, LoginActivity.class);
                             startActivity(intent);
                         }
