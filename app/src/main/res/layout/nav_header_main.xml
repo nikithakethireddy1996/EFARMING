@@ -26,9 +26,10 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:textSize="15dp"
+        android:textColor="@color/cardview_dark_background"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:background="@drawable/green_bg"
+        android:textStyle="bold"
         android:textColorHint="#F2FBFDFB"
         android:text="EFARMING" />
 
@@ -39,9 +40,10 @@
         android:paddingTop="8dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/cardview_dark_background"
         android:text="efarming@gmail.com"
         android:textSize="15dp"
-        android:background="@drawable/green_bg"
         android:textColorHint="#F2FBFDFB"/>
 
 </LinearLayout>
