@@ -57,14 +57,6 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"password must be filled", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (userNameET.getText().toString().equals("efarming@gmail.com")
-                        && passwordET.getText().toString().equals("farm@1234")){
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }
-                else if (!(userNameET.getText().toString().equals("efarming@gmail.com")
-                        && passwordET.getText().toString().equals("farm@1234")))
-                Toast.makeText(getApplicationContext(),"username or password is incorrect", Toast.LENGTH_SHORT).show();
                 fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -74,7 +66,8 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                         else {
-                            Toast.makeText(LoginActivity.this,"could not login",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this,"Entered Email or password does not match",Toast.LENGTH_SHORT).show();
+                            return;
                         }
                     }
                 });
