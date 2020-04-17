@@ -18,11 +18,12 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.efarming.MainActivity;
 import com.example.efarming.R;
 import com.example.efarming.SearchActivity;
+import com.example.efarming.crop_fruits;
 import com.example.efarming.ui.user.UserFragment;
 import com.example.efarming.ui.user.UserViewModel;
 
 public class MarketingFragment extends Fragment {
-    Button btnsrch;
+    Button btnFruits;
     private MarketingViewModel marketingViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -41,12 +42,12 @@ public class MarketingFragment extends Fragment {
                 ViewModelProviders.of(this).get(MarketingViewModel.class);
         View root = inflater.inflate(R.layout.fragment_marketing, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
-        btnsrch = root.findViewById(R.id.btnsrch);
-        btnsrch.setOnClickListener(new View.OnClickListener() {
+        btnFruits = root.findViewById(R.id.btnFruits);
+        btnFruits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),SearchActivity.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(getActivity(), crop_fruits.class);
+                startActivity(intent1);
             }
         });
         marketingViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {

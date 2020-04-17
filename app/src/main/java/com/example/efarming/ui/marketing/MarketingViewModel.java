@@ -10,7 +10,7 @@ public class MarketingViewModel extends ViewModel {
 
     public MarketingViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("MARKETING");
+        mText.setValue("Select the crops that you are going to sell");
     }
 
     public LiveData<String> getText() {
