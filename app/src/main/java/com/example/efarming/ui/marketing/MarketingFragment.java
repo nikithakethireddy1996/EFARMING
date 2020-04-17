@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -22,10 +23,14 @@ import com.example.efarming.crop_fruits;
 import com.example.efarming.ui.user.UserFragment;
 import com.example.efarming.ui.user.UserViewModel;
 
-public class MarketingFragment extends Fragment {
-    Button btnFruits;
-    private MarketingViewModel marketingViewModel;
+import java.util.ArrayList;
 
+public class MarketingFragment extends Fragment {
+    Button btnFruits, btnVeggie;
+    private MarketingViewModel marketingViewModel;
+    public static String x = "";
+    public static ArrayList<String> spinItem;
+    public static ArrayAdapter<String> adapter;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         OnBackPressedCallback callback = new OnBackPressedCallback(
@@ -46,8 +51,32 @@ public class MarketingFragment extends Fragment {
         btnFruits.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                x = "Fruit Type";
+                spinItem = new ArrayList<>();
+                spinItem.add("Select");
+                spinItem.add("Grapes");
+                spinItem.add("Apples");
+                spinItem.add("Banana");
+                spinItem.add("cherry");
+                adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, spinItem);
                 Intent intent1 = new Intent(getActivity(), crop_fruits.class);
                 startActivity(intent1);
+            }
+        });
+        btnVeggie = root.findViewById(R.id.btnVeggie);
+        btnVeggie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v1) {
+                x = "Vegetable Type";
+                spinItem = new ArrayList<>();
+                spinItem.add("Select");
+                spinItem.add("carrot");
+                spinItem.add("potato");
+                spinItem.add("tomato");
+                spinItem.add("spinach");
+                adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, spinItem);
+                Intent int1 = new Intent(getActivity(), crop_fruits.class);
+                startActivity(int1);
             }
         });
         marketingViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
