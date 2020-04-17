@@ -18,10 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.efarming.MainActivity;
 import com.example.efarming.R;
-import com.example.efarming.SearchActivity;
 import com.example.efarming.crop_fruits;
-import com.example.efarming.ui.user.UserFragment;
-import com.example.efarming.ui.user.UserViewModel;
 
 import java.util.ArrayList;
 
