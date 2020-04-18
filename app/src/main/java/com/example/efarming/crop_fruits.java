@@ -60,10 +60,12 @@ public class crop_fruits extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"Submitted successfully, we will get back with best deals through email",Toast.LENGTH_LONG).show();
                 userId1 = firebaseAuthdata.getCurrentUser().getUid();
-                DocumentReference documentReference1 = firebaseFirestoredata.collection("cropsData").document(userId1);
+                DocumentReference documentReference1 = firebaseFirestoredata.collection("MarketingCropsData").document(userId1);
                 Map<String,Object> user1 = new HashMap<>();
-                user1.put("startId",Integer.parseInt(startId.getText().toString()));
-                user1.put("endId",Integer.parseInt(endId.getText().toString()));
+                user1.put("selected crop",spFrtTyp.getSelectedItem().toString());
+                user1.put("weight in lbs",spFrtwgt.getSelectedItem().toString());
+                user1.put("start range",Integer.parseInt(startId.getText().toString()));
+                user1.put("end range",Integer.parseInt(endId.getText().toString()));
                 documentReference1.set(user1).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
