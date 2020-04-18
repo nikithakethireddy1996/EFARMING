@@ -89,13 +89,17 @@ https://www.youtube.com/watch?v=urLA8z6-l3k&list=PLgCYzUzKIBE-vInwQhGSdnbyJ62nix
 
 <img src="Userpage.PNG" alt="image">
 
-<p>This is a page of the app where when the user presses the new crop button in the previous page it will be directed to this page where user can store hios crops information</p>
+<p>This is a page of the app where when the user presses the new crop button in the previous page it will be directed to this page where user can store his crops information</p>
 
-<img src="User.PNG" alt="image">
+<img src="NewCrop.PNG" alt="image">
 
-<p>This is a page of the app which is appeared immediately when the user opens the app and the user can view the further crops information</p>
+<p>This is a page of the app which is appeared immediately when the user opens the app and the user can view the further crops information by pressing the buttons</p>
 
 <img src="CropAnalysis.PNG" alt="image">
+
+<p>This is a page of the app where the user can provide some suggestions to the other users of the app</p>
+
+<img src="NewCropArticle.PNG" alt="image">
 
 <p>This is a page of the app which is used for marketing the crops in markets and also used for accessing the locations and showing the nearest markets</p>
 
