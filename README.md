@@ -71,3 +71,7 @@ https://www.youtube.com/watch?v=urLA8z6-l3k&list=PLgCYzUzKIBE-vInwQhGSdnbyJ62nix
 
 <img src="Login.PNG" alt="image">
 
+<p>This is a page of the app which is used for registration purpose</p>
+
+<img src="Register.PNG" alt="image">
+
