@@ -65,5 +65,5 @@ https://www.youtube.com/watch?v=urLA8z6-l3k&list=PLgCYzUzKIBE-vInwQhGSdnbyJ62nix
 
 <p>This is a page of the app which is displayed once the app is opened</p>
 
-
+<img src="Userdisplay.PNG" alt="image">
 
