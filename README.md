@@ -2,7 +2,7 @@
 
 <h1>App Name: E-Farming</h1>
 <h2>App Logo<h2>
-![0](https://www.steer.org.au/wp-content/uploads/2015/09/CROP-FARMING.png)
+<img src="https://www.steer.org.au/wp-content/uploads/2015/09/CROP-FARMING.png" alt="image">
 <h2>Team Members:</h2>
  <li>1.Nikitha Kethireddy</li>
  <li>2. Philip</li>
