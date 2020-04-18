@@ -82,3 +82,7 @@ https://www.youtube.com/watch?v=urLA8z6-l3k&list=PLgCYzUzKIBE-vInwQhGSdnbyJ62nix
 <p>This is a page of the app which appeared only when the user signs into the app and the user can store his crops information</p>
 
 <img src="Userpage.PNG" alt="image">
+
+<p>This is a page of the app which is appeared immediately when the user opens the app and the user can view the further crops information</p>
+
+<img src="CropAnalysis.PNG" alt="image">
