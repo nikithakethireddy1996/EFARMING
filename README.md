@@ -14,12 +14,16 @@
 <p> Our project also helps the users to access their current location and also helps them to find the nearest markets to them where the crop can be selled. Our project also provides suggestions to the users to find the crop prices in the markets</p>
 
 <h2>Specifications/Support Version:</h2>
-<p>We are using android API version of 9.0-API 28 in GENY MOTION. The size of the layout is 1440x2960 with a density of 560. 
-The complete details of the device we have used in our project is:
-Device Name: Google Pixel 2 XL
-Android API: 9.0 API 28
+<p>We are using android API version of 9.0-API 28 in GENY MOTION. <br/>
+The size of the layout is 1440x2960 with a density of 560. <br/>
+The complete details of the device we have used in our project is: <br/>
+Device Name: Google Pixel 2 XL<br />
+Android API: 9.0 API 28<br/>
 Size: 1440*2960 in Genymotion</p>
-Database: Firebase.com (Cloud database)
+
+<h2>Database: </h2>
+
+Firebase.com (Cloud database)
 
 <h2> APK File:</h2>
 
