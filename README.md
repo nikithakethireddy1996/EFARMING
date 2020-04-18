@@ -28,5 +28,5 @@ Installation of this app is much more easier with just few steps
 The User can download the apk file of the EFarming App.
 By clicking on the apk file, It install's the app in your android mobile.
 Once the App gets installed the user can click on the App icon to open it.
-Later on, the user can register into the app and can find the informations ref=garding the farming.
+Later on, the user can register into the app and can find the informations regarding the farming.
 </ul>
