@@ -59,4 +59,4 @@ https://www.youtube.com/watch?v=urLA8z6-l3k&list=PLgCYzUzKIBE-vInwQhGSdnbyJ62nix
 </p>
 
 <h2>Layouts of our project:<h2>
-https://github.com/nikithakethireddy1996/efarming/blob/master/1Capture.PNG?raw=true
+![](https://raw.githubusercontent.com/nikithakethireddy1996/about-me/master/IMG_20190815_162414.jpg)
