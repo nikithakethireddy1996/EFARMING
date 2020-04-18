@@ -75,3 +75,8 @@ https://www.youtube.com/watch?v=urLA8z6-l3k&list=PLgCYzUzKIBE-vInwQhGSdnbyJ62nix
 
 <img src="Register.PNG" alt="image">
 
+<p>This is a page of the app which is used for when the user forgets the password and there will be a link sent to his gmail</p>
+
+<img src="Forgotpassword.PNG" alt="image">
+
+
