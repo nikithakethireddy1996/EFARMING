@@ -53,7 +53,7 @@ To run this app we need internet.
 <h2>Test Credentials:</h2>
 <p>
 <ul>
- Username: efarming2020@gmail.com
+ Username: efarming2020@gmail.com <br />
  password: efarm@2020
  </ul>
 </p>
