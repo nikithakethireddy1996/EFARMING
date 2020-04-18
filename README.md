@@ -16,6 +16,7 @@
 <h2>Specifications/Support Version:</h2>
 <p>We are using android API version of 9.0-API 28 in GENY MOTION. <br/>
 The size of the layout is 1440x2960 with a density of 560. <br/>
+ 
 The complete details of the device we have used in our project is: <br/>
 Device Name: Google Pixel 2 XL<br />
 Android API: 9.0 API 28<br/>
