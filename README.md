@@ -27,7 +27,7 @@ Size: 1440*2960 in Genymotion</p>
 Firebase.com (Cloud database)
 
 <h2> APK File:</h2>
-<a href="app-debug.apk">app-debug.apk</a>
+<a href="efarming.apk">efarming.apk</a>
 
 <h2>Installation Steps</h2>
 <ul>
