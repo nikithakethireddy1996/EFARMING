@@ -58,8 +58,24 @@ public class crop_fruits extends AppCompatActivity {
         BtnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Submitted successfully, we will get back with best deals through email",Toast.LENGTH_LONG).show();
+                if (spFrtTyp.getSelectedItem().toString().equalsIgnoreCase("select")){
+                    Toast.makeText(getApplicationContext(),"All fields must be filled",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if (spFrtwgt.getSelectedItem().toString().equalsIgnoreCase("select")){
+                    Toast.makeText(getApplicationContext(),"All fields must be filled",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if (startId.getText().toString().length()==0 || endId.getText().toString().length()==0){
+                    Toast.makeText(getApplicationContext(),"All fields must be filled",Toast.LENGTH_LONG).show();
+                    return;
+                }
                 userId1 = firebaseAuthdata.getCurrentUser().getUid();
+                Log.d("user id is : ","here id is "+userId1);
+                if (userId1 == " "){
+                    Toast.makeText(getApplicationContext(),"Please login to submit",Toast.LENGTH_LONG).show();
+                    return;
+                }
                 DocumentReference documentReference1 = firebaseFirestoredata.collection("MarketingCropsData").document(userId1);
                 Map<String,Object> user1 = new HashMap<>();
                 user1.put("selected crop",spFrtTyp.getSelectedItem().toString());
@@ -72,6 +88,7 @@ public class crop_fruits extends AppCompatActivity {
                         Log.d("TAG","user data created"+userId1);
                     }
                 });
+                Toast.makeText(getApplicationContext(),"Submitted successfully, we will get back with best deals through email",Toast.LENGTH_LONG).show();
             }
         });
         mapLinkId.setOnClickListener(new View.OnClickListener() {

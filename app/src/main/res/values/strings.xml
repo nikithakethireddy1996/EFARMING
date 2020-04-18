@@ -11,6 +11,5 @@
     <string name="menu_crop_analysis">Crop Analysis</string>
     <string name="menu_marketing">Marketing</string>
     <string name="menu_help">Help</string>
-    <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 </resources>

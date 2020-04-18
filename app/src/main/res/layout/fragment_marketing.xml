@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/green_bg"
         android:textAlignment="center"
@@ -27,28 +27,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/green_bg"
-        android:textColor="#FAFAFC"
-        android:text="Fruits"
         android:padding="15dp"
+        android:text="Fruits"
+        android:textColor="#FAFAFC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.398" />
+        app:layout_constraintVertical_bias="0.473" />
 
     <Button
         android:id="@+id/btnVeggie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FAFAFC"
-        android:text="Vegetables"
-        android:padding="15dp"
         android:background="@drawable/green_bg"
+        android:padding="15dp"
+        android:text="Vegetables"
+        android:textColor="#FAFAFC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.594" />
+        app:layout_constraintVertical_bias="0.674" />
 </androidx.constraintlayout.widget.ConstraintLayout>
