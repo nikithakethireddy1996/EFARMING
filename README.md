@@ -59,5 +59,7 @@ https://www.youtube.com/watch?v=urLA8z6-l3k&list=PLgCYzUzKIBE-vInwQhGSdnbyJ62nix
 
 <h2>Layouts of our project:</h2>
 
+<p>This is a Splash screen page of the app which is displayed immediately when the app is started</p>
+
 <img src="efarm_image.png" alt="image">
 
