@@ -4,26 +4,42 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.efarming.ui.marketing.MarketingFragment;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class crop_fruits extends AppCompatActivity {
     Spinner spFrtTyp, spFrtwgt;
     TextView mapLinkId, typFrt;
     Button BtnSubmit;
+    EditText startId,endId;
+    FirebaseAuth firebaseAuthdata;
+    FirebaseFirestore firebaseFirestoredata;
+    String userId1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crop_fruits);
+        firebaseAuthdata = FirebaseAuth.getInstance();
+        firebaseFirestoredata = FirebaseFirestore.getInstance();
+        startId = (EditText)findViewById(R.id.startId);
+        endId = (EditText)findViewById(R.id.endId);
         mapLinkId = (TextView) findViewById(R.id.mapLinkId);
         spFrtTyp = (Spinner) findViewById(R.id.spFrtTyp);
         spFrtwgt = (Spinner) findViewById(R.id.spFrtwgt);
@@ -43,6 +59,17 @@ public class crop_fruits extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(),"Submitted successfully, we will get back with best deals through email",Toast.LENGTH_LONG).show();
+                userId1 = firebaseAuthdata.getCurrentUser().getUid();
+                DocumentReference documentReference1 = firebaseFirestoredata.collection("cropsData").document(userId1);
+                Map<String,Object> user1 = new HashMap<>();
+                user1.put("startId",Integer.parseInt(startId.getText().toString()));
+                user1.put("endId",Integer.parseInt(endId.getText().toString()));
+                documentReference1.set(user1).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("TAG","user data created"+userId1);
+                    }
+                });
             }
         });
         mapLinkId.setOnClickListener(new View.OnClickListener() {
