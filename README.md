@@ -30,3 +30,14 @@ By clicking on the apk file, It install's the app in your android mobile.
 Once the App gets installed the user can click on the App icon to open it.
 Later on, the user can register into the app and can find the informations regarding the farming.
 </ul>
+
+<h2>Requirements:</h2>
+<p>
+<ul>
+Mobile with the Android operating System.
+We need the above API properties to run the app and to have good user interface.
+Minimum 1 GB RAM.
+Minimum 8 GB internal storage
+To run this app we need internet.
+</ul>
+</p>
