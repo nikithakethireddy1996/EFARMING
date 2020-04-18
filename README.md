@@ -59,5 +59,5 @@ https://www.youtube.com/watch?v=urLA8z6-l3k&list=PLgCYzUzKIBE-vInwQhGSdnbyJ62nix
 </p>
 
 <h2>Layouts of our project:<h2>
-
+![startup image](efarm_image.png)
 
