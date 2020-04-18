@@ -21,6 +21,9 @@ Android API: 9.0 API 28
 Size: 1440*2960 in Genymotion</p>
 Database: Firebase.com (Cloud database)
 
+<h2> APK File:</h2>
+
+
 <h2>Installation Steps</h2>
 <ul>
 Installation of this app is much more easier with just few steps
