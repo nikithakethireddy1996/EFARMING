@@ -59,4 +59,4 @@ To run this app we need internet.
 </p>
 
 <h2>Layouts of our project:<h2>
- ![0](https://github.com/nikithakethireddy1996/efarming/blob/master/1Capture.PNG)
+![0](https://github.com/nikithakethireddy1996/efarming/blob/master/1Capture.PNG)
