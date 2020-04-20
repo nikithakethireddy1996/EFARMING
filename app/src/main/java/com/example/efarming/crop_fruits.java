@@ -71,11 +71,7 @@ public class crop_fruits extends AppCompatActivity {
                     return;
                 }
                 userId1 = firebaseAuthdata.getCurrentUser().getUid();
-                Log.d("user id is : ","here id is "+userId1);
-                if (userId1 == " "){
-                    Toast.makeText(getApplicationContext(),"Please login to submit",Toast.LENGTH_LONG).show();
-                    return;
-                }
+                
                 DocumentReference documentReference1 = firebaseFirestoredata.collection("MarketingCropsData").document(userId1);
                 Map<String,Object> user1 = new HashMap<>();
                 user1.put("selected crop",spFrtTyp.getSelectedItem().toString());
