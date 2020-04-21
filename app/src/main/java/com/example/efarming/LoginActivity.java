@@ -19,9 +19,11 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.QuerySnapshot;
 
 
@@ -65,20 +67,6 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "password must be filled", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                firebaseFirestore.collection("usersList").addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
-
-                        for (DocumentChange documentChange : documentSnapshots.getDocumentChanges())
-                        {
-                            if (email.equalsIgnoreCase(documentChange.getDocument().getData().get("EmailId").toString())){
-                                userName =  documentChange.getDocument().getData().get("FirstName").toString();
-                                userName = userName.substring(0,1).toUpperCase()+userName.substring(1);
-                                break;
-                            }
-                        }
-                    }
-                });
                 fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
