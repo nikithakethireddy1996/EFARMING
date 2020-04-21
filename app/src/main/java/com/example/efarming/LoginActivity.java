@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     public static String userName, emailId = "";
     public static boolean isUserLogin = false;
     FirebaseAuth fAuth;
+    FirebaseFirestore firebaseFirestore;
 
 
     @Override
@@ -44,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordET = (EditText) findViewById(R.id.passwordET);
         loginBTN = (Button) findViewById(R.id.loginBTN);
         fAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
         TextView register = (TextView) findViewById(R.id.lnkRegisterTV);
         register.setMovementMethod(LinkMovementMethod.getInstance());
         register.setOnClickListener(new View.OnClickListener() {
@@ -66,15 +68,15 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "password must be filled", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 fAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             isUserLogin = true;
+                            getUserName(email);
                             emailId = email;
                             Toast.makeText(getApplicationContext(), "Logged in Successfully!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
                         } else {
                             Toast.makeText(LoginActivity.this, "Entered Email or password does not match", Toast.LENGTH_SHORT).show();
                             return;
@@ -92,6 +94,29 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent1 = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
                 startActivity(intent1);
+            }
+        });
+    }
+
+    public void getUserName(final String email) {
+
+        firebaseFirestore.collection("usersList").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.d("LoginActivity", "Error:" + e.getMessage());
+                    return;
+                } else {
+                    for (DocumentChange documentChange : documentSnapshots.getDocumentChanges()) {
+                        if (email.equalsIgnoreCase(documentChange.getDocument().getData().get("EmailId").toString())) {
+                            userName = documentChange.getDocument().getData().get("FirstName").toString();
+                            userName = userName.substring(0, 1).toUpperCase() + userName.substring(1);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            break;
+                        }
+                    }
+                }
             }
         });
     }
