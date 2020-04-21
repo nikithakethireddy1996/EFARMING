@@ -28,12 +28,16 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
+    private static View navHeader;
     FirebaseAuth firebaseAuth;
 
     @Override
@@ -47,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!LoginActivity.isUserLogin) {
+                    Toast.makeText(getApplicationContext(), "Please login", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -56,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         header = navigationView.getHeaderView(0);
+        navHeader = header;
+        if (LoginActivity.emailId.length() > 0) {
+            setProfileName(LoginActivity.userName, LoginActivity.emailId);
+        }
         firebaseAuth = FirebaseAuth.getInstance();
         ImageView nav_head_image = header.findViewById(R.id.imageView);
 
@@ -64,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
-
             }
         });
 
@@ -77,7 +88,16 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
-//
+
+    public static void setProfileName(String userName, String userEmail) {
+        TextView username, email;
+        username = (TextView) navHeader.findViewById(R.id.textName);
+        email = (TextView) navHeader.findViewById(R.id.textEmail);
+        username.setText(userName);
+        email.setText(userEmail);
+    }
+
+    //
 //    public void signout(View view){
 //        Toast.makeText(getApplicationContext(),"signout successfully",Toast.LENGTH_SHORT).show();
 //    }
@@ -94,12 +114,19 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id=item.getItemId();
-        if(id==R.id.action_settings){
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
             FirebaseAuth.getInstance().signOut();
-            Toast.makeText(getApplicationContext(),"Logged out successfully",Toast.LENGTH_SHORT).show();
+            LoginActivity.isUserLogin = false;
+            TextView username, email;
+            username = (TextView) navHeader.findViewById(R.id.textName);
+            email = (TextView) navHeader.findViewById(R.id.textEmail);
+            username.setText("EFARMING");
+            email.setText("efarming@gmail.com");
+            Toast.makeText(getApplicationContext(), "Logged out successfully", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
