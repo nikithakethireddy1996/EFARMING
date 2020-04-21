@@ -58,6 +58,10 @@ public class crop_fruits extends AppCompatActivity {
         BtnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!LoginActivity.isUserLogin) {
+                    Toast.makeText(getApplicationContext(), "Please login", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 if (spFrtTyp.getSelectedItem().toString().equalsIgnoreCase("select")){
                     Toast.makeText(getApplicationContext(),"All fields must be filled",Toast.LENGTH_LONG).show();
                     return;
@@ -90,6 +94,10 @@ public class crop_fruits extends AppCompatActivity {
         mapLinkId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!LoginActivity.isUserLogin) {
+                    Toast.makeText(getApplicationContext(), "Please login", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 Intent intent1 = new Intent(crop_fruits.this, SearchActivity.class);
                 startActivity(intent1);
             }
