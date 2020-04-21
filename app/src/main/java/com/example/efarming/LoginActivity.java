@@ -33,8 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordET;
     public static String userName, emailId = "";
     public static boolean isUserLogin = false;
-    FirebaseFirestore firebaseFirestore;
     FirebaseAuth fAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,6 @@ public class LoginActivity extends AppCompatActivity {
         passwordET = (EditText) findViewById(R.id.passwordET);
         loginBTN = (Button) findViewById(R.id.loginBTN);
         fAuth = FirebaseAuth.getInstance();
-        firebaseFirestore = FirebaseFirestore.getInstance();
         TextView register = (TextView) findViewById(R.id.lnkRegisterTV);
         register.setMovementMethod(LinkMovementMethod.getInstance());
         register.setOnClickListener(new View.OnClickListener() {
