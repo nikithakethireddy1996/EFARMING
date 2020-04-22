@@ -32,11 +32,6 @@ public class UserCropInfoActivity extends AppCompatActivity {
 
     private FirebaseFirestore db;
 
-   /* FirebaseAuth mAuth;
-    String userId;
-    FirebaseFirestore firebaseFirestore;*/
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +79,7 @@ public class UserCropInfoActivity extends AppCompatActivity {
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
-                                Log.d("addCropsActivity", "DocumentSnapshot added with ID: " + documentReference.getId());
+                                Log.d("addCropsActivity", "Crop added with ID: " + documentReference.getId());
                                 setCropNameET.setText("");
                                 setYearCultivatedET.setText("");
                                 setQuantityCultivatedET.setText("");
