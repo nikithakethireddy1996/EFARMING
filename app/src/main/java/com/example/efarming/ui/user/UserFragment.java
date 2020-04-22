@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,6 +25,9 @@ import com.example.efarming.MainActivity;
 import com.example.efarming.R;
 import com.example.efarming.UserCropInfoActivity;
 import com.example.efarming.ViewInfoActivity;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 import static com.example.efarming.R.layout.fragment_user;
 
@@ -32,7 +36,6 @@ public class UserFragment extends Fragment {
     private UserViewModel userViewModel;
     Button newcropBTN;
     Button infoBTN;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -70,7 +73,6 @@ public class UserFragment extends Fragment {
             }
         });
 
-
         userViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -81,6 +83,7 @@ public class UserFragment extends Fragment {
     }
 
     private void initspinnerfooter() {
+
         String[] items = new String[]{
                 "Choose crop", "sugarcane", "cotton", "wheat", "paddy" , "rice" , "corn"
         };
