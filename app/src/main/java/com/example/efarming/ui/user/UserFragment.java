@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
@@ -20,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.efarming.LoginActivity;
 import com.example.efarming.MainActivity;
 import com.example.efarming.R;
 import com.example.efarming.UserCropInfoActivity;
@@ -57,6 +59,10 @@ public class UserFragment extends Fragment {
         infoBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!LoginActivity.isUserLogin) {
+                    Toast.makeText(getContext(), "Please login", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 Intent in=new Intent(getContext(), ViewInfoActivity.class);
                 startActivity(in);
             }
@@ -64,6 +70,10 @@ public class UserFragment extends Fragment {
         newcropBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!LoginActivity.isUserLogin) {
+                    Toast.makeText(getContext(), "Please login", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 Intent nw = new Intent(getActivity(), UserCropInfoActivity.class);
                 startActivity(nw);
 
