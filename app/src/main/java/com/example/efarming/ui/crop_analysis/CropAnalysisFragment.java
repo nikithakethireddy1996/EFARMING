@@ -21,7 +21,7 @@ import com.example.efarming.R;
 import com.example.efarming.ui.crop_analysis.CropAnalysisViewModel;
 
 public class CropAnalysisFragment extends Fragment {
-    Button blackBTN;
+    Button blackBTN,redBTN,sandyBTN;
     private CropAnalysisViewModel cropAnalysisViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -39,9 +39,9 @@ public class CropAnalysisFragment extends Fragment {
         cropAnalysisViewModel =
                 ViewModelProviders.of(this).get(CropAnalysisViewModel.class);
         View root = inflater.inflate(R.layout.fragment_crop_analysis, container, false);
-        blackBTN = (Button) root.findViewById(R.id.BlackSoilBTN);
-        Button redBTN = root.findViewById(R.id.RedSoilBTN);
-        Button sandyBTN = root.findViewById(R.id.SandySoilBTN);
+        blackBTN = root.findViewById(R.id.BlackSoilBTN);
+        redBTN = root.findViewById(R.id.RedSoilBTN);
+        sandyBTN = root.findViewById(R.id.SandySoilBTN);
 
         blackBTN.setOnClickListener(new View.OnClickListener() {
             @Override
