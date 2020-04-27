@@ -11,6 +11,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +29,11 @@ import com.example.efarming.R;
 import com.example.efarming.UserCropInfoActivity;
 import com.example.efarming.ViewInfoActivity;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 
@@ -38,9 +44,13 @@ public class UserFragment extends Fragment {
     private UserViewModel userViewModel;
     Button newcropBTN;
     Button infoBTN;
+    FirebaseFirestore firebaseFirestore;
+    private ArrayList<String> spinItem1;
+    private ArrayAdapter<String> adapter1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        firebaseFirestore = FirebaseFirestore.getInstance();
         OnBackPressedCallback callback = new OnBackPressedCallback(
                 true
         ) {
@@ -55,10 +65,9 @@ public class UserFragment extends Fragment {
                 ViewModelProviders.of(this).get(UserViewModel.class);
         View root = inflater.inflate(fragment_user, container, false);
         dropdown = (Spinner) root.findViewById(R.id.spinner);
-        initspinnerfooter();
+        getDta1();
         newcropBTN = root.findViewById(R.id.newcropBTN);
         infoBTN=root.findViewById(R.id.infoBTN);
-
         infoBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,8 +75,7 @@ public class UserFragment extends Fragment {
                     Toast.makeText(getContext(), "Please login", Toast.LENGTH_LONG).show();
                     return;
                 }
-                Intent in=new Intent(getContext(), ViewInfoActivity.class);
-                startActivity(in);
+                getDta();
             }
         });
         newcropBTN.setOnClickListener(new View.OnClickListener() {
@@ -82,34 +90,54 @@ public class UserFragment extends Fragment {
 
             }
         });
-
         userViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
             }
         });
         return root;
-
     }
 
-    private void initspinnerfooter() {
 
-        String[] items = new String[]{
-                "Choose crop", "sugarcane", "cotton", "wheat", "paddy" , "rice" , "corn"
-        };
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, items);
-        dropdown.setAdapter(adapter);
-        dropdown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+    public void getDta(){
+        firebaseFirestore.collection("cropsInfo").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.v("item", (String) parent.getItemAtPosition(position));
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
+            public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.d("UserFragment", "Error:" + e.getMessage());
+                    return;
+                } else {
+                    for (DocumentChange documentChange : documentSnapshots.getDocumentChanges()) {
+                        if (dropdown.getSelectedItem().toString().equalsIgnoreCase(documentChange.getDocument().getData().get("Name").toString())){
+                            Intent in=new Intent(getContext(), ViewInfoActivity.class);
+                            in.putExtra("drop_down_amspt",documentChange.getDocument().getData().get("Amount spent").toString());
+                            in.putExtra("drop_down_cname",documentChange.getDocument().getData().get("Name").toString());
+                            in.putExtra("drop_down_pr",documentChange.getDocument().getData().get("Profit").toString());
+                            in.putExtra("drop_down_qn",documentChange.getDocument().getData().get("Quantity").toString());
+                            in.putExtra("drop_down_yrs",documentChange.getDocument().getData().get("Year").toString());
+                            startActivity(in);
+                        }
+                    }
+                }
             }
-
+        });
+    }
+    public void getDta1(){
+        firebaseFirestore.collection("cropsInfo").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // TODO Auto-generated method stub
+            public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.d("UserCropInfoActivity", "Error:" + e.getMessage());
+                    return;
+                } else {
+                    spinItem1 = new ArrayList<>();
+                    spinItem1.add("select");
+                    for (DocumentChange documentChange : documentSnapshots.getDocumentChanges()) {
+                        spinItem1.add(documentChange.getDocument().getData().get("Name").toString());
+                    }
+                    adapter1 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, spinItem1);
+                    dropdown.setAdapter(adapter1);
+                }
             }
         });
     }
