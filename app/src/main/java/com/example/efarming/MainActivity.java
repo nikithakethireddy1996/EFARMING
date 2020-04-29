@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please login", Toast.LENGTH_LONG).show();
                     return;
                 }
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "This service is currently unavailable", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
