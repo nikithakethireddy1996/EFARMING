@@ -76,11 +76,11 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
                 else if (location.length() > 0 && location.equalsIgnoreCase("mangoes")) {
                     latlngs.clear();
                     map.clear();
-                    latlngs.add(new LatLng(38.384401, -100.782266));
-                    latlngs.add(new LatLng(39.683452, -97.666177));
-                    latlngs.add(new LatLng(40.333804, -94.872031));
-                    latlngs.add(new LatLng(39.108342, -94.614589));
-                    latlngs.add(new LatLng(38.181654, -97.339199));
+                    latlngs.add(new LatLng(41.384401, -97.782266));
+                    latlngs.add(new LatLng(42.683452, -101.666177));
+                    latlngs.add(new LatLng(43.333804, -99.872031));
+                    latlngs.add(new LatLng(44.108342, -100.614589));
+                    latlngs.add(new LatLng(45.181654, -98.339199));
                     LatLngBounds.Builder builder = new LatLngBounds.Builder();
                     for (LatLng p : latlngs) {
                         options.position(p);
@@ -96,11 +96,11 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
                 } else if (location.length() > 0 && location.equalsIgnoreCase("oranges")) {
                     latlngs.clear();
                     map.clear();
-                    latlngs.add(new LatLng(38.384401, -100.782266));
-                    latlngs.add(new LatLng(39.683452, -97.666177));
-                    latlngs.add(new LatLng(40.333804, -94.872031));
-                    latlngs.add(new LatLng(39.108342, -94.614589));
-                    latlngs.add(new LatLng(38.181654, -97.339199));
+                    latlngs.add(new LatLng(46.384401, -90.782266));
+                    latlngs.add(new LatLng(47.683452, -85.666177));
+                    latlngs.add(new LatLng(48.333804, -92.872031));
+                    latlngs.add(new LatLng(49.108342, -80.614589));
+                    latlngs.add(new LatLng(50.181654, -97.339199));
                     LatLngBounds.Builder builder = new LatLngBounds.Builder();
                     for (LatLng p : latlngs) {
                         options.position(p);
@@ -116,11 +116,11 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
                 } else if (location.length() > 0 && location.equalsIgnoreCase("bananas")) {
                     latlngs.clear();
                     map.clear();
-                    latlngs.add(new LatLng(38.384401, -100.782266));
-                    latlngs.add(new LatLng(39.683452, -97.666177));
-                    latlngs.add(new LatLng(40.333804, -94.872031));
-                    latlngs.add(new LatLng(39.108342, -94.614589));
-                    latlngs.add(new LatLng(38.181654, -97.339199));
+                    latlngs.add(new LatLng(51.384401, -100.782266));
+                    latlngs.add(new LatLng(52.683452, -97.666177));
+                    latlngs.add(new LatLng(53.333804, -101.872031));
+                    latlngs.add(new LatLng(54.108342, -94.614589));
+                    latlngs.add(new LatLng(55.181654, -102.339199));
                     LatLngBounds.Builder builder = new LatLngBounds.Builder();
                     for (LatLng p : latlngs) {
                         options.position(p);
@@ -136,11 +136,11 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
                 } else if (location.length() > 0 && location.equalsIgnoreCase("apples")) {
                     latlngs.clear();
                     map.clear();
-                    latlngs.add(new LatLng(38.384400, -100.782267));
-                    latlngs.add(new LatLng(39.683453, -97.666178));
-                    latlngs.add(new LatLng(40.333805, -94.872032));
-                    latlngs.add(new LatLng(39.108343, -94.614580));
-                    latlngs.add(new LatLng(38.181655, -97.339190));
+                    latlngs.add(new LatLng(40.384408, -97.782269));
+                    latlngs.add(new LatLng(39.683454, -99.666179));
+                    latlngs.add(new LatLng(38.333808, -94.872036));
+                    latlngs.add(new LatLng(37.108344, -94.614585));
+                    latlngs.add(new LatLng(36.181656, -104.339195));
                     LatLngBounds.Builder builder = new LatLngBounds.Builder();
                     for (LatLng p : latlngs) {
                         options.position(p);
@@ -156,11 +156,11 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
                 } else if (location.length() > 0 && location.equalsIgnoreCase("carrot")) {
                     latlngs.clear();
                     map.clear();
-                    latlngs.add(new LatLng(38.384401, -100.782266));
-                    latlngs.add(new LatLng(39.683452, -97.666177));
-                    latlngs.add(new LatLng(40.333804, -94.872031));
-                    latlngs.add(new LatLng(39.108342, -94.614589));
-                    latlngs.add(new LatLng(38.181654, -97.339199));
+                    latlngs.add(new LatLng(60.384401, -100.782266));
+                    latlngs.add(new LatLng(59.683452, -99.666177));
+                    latlngs.add(new LatLng(58.333804, -101.872031));
+                    latlngs.add(new LatLng(57.108342, -94.614589));
+                    latlngs.add(new LatLng(56.181654, -108.339199));
                     LatLngBounds.Builder builder = new LatLngBounds.Builder();
                     for (LatLng p : latlngs) {
                         options.position(p);
@@ -176,11 +176,11 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
                 } else if (location.length() > 0 && location.equalsIgnoreCase("cucumber")) {
                     latlngs.clear();
                     map.clear();
-                    latlngs.add(new LatLng(38.384401, -100.782266));
-                    latlngs.add(new LatLng(39.683452, -97.666177));
-                    latlngs.add(new LatLng(40.333804, -94.872031));
-                    latlngs.add(new LatLng(39.108342, -94.614589));
-                    latlngs.add(new LatLng(38.181654, -97.339199));
+                    latlngs.add(new LatLng(55.384401, -100.782266));
+                    latlngs.add(new LatLng(54.683452, -97.666177));
+                    latlngs.add(new LatLng(53.333804, -102.872031));
+                    latlngs.add(new LatLng(52.108342, -94.614589));
+                    latlngs.add(new LatLng(51.181654, -104.339199));
                     LatLngBounds.Builder builder = new LatLngBounds.Builder();
                     for (LatLng p : latlngs) {
                         options.position(p);
@@ -196,11 +196,11 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
                 } else if (location.length() > 0 && location.equalsIgnoreCase("spinach")) {
                     latlngs.clear();
                     map.clear();
-                    latlngs.add(new LatLng(38.384401, -100.782266));
-                    latlngs.add(new LatLng(39.683452, -97.666177));
-                    latlngs.add(new LatLng(40.333804, -94.872031));
-                    latlngs.add(new LatLng(39.108342, -94.614589));
-                    latlngs.add(new LatLng(38.181654, -97.339199));
+                    latlngs.add(new LatLng(50.384401, -100.782266));
+                    latlngs.add(new LatLng(49.683452, -97.666177));
+                    latlngs.add(new LatLng(48.333804, -102.872031));
+                    latlngs.add(new LatLng(47.108342, -94.614589));
+                    latlngs.add(new LatLng(46.181654, -109.339199));
                     LatLngBounds.Builder builder = new LatLngBounds.Builder();
                     for (LatLng p : latlngs) {
                         options.position(p);
@@ -216,11 +216,11 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
                 } else if (location.length() > 0 && location.equalsIgnoreCase("capsicum")) {
                     latlngs.clear();
                     map.clear();
-                    latlngs.add(new LatLng(38.384408, -100.782269));
-                    latlngs.add(new LatLng(39.683454, -97.666179));
-                    latlngs.add(new LatLng(40.333808, -94.872036));
-                    latlngs.add(new LatLng(39.108344, -94.614585));
-                    latlngs.add(new LatLng(38.181656, -97.339195));
+                    latlngs.add(new LatLng(45.384408, -98.782269));
+                    latlngs.add(new LatLng(44.683454, -97.666179));
+                    latlngs.add(new LatLng(43.333808, -94.872036));
+                    latlngs.add(new LatLng(42.108344, -94.614585));
+                    latlngs.add(new LatLng(41.181656, -97.339195));
                     LatLngBounds.Builder builder = new LatLngBounds.Builder();
                     for (LatLng p : latlngs) {
                         options.position(p);
@@ -236,11 +236,11 @@ public class SearchActivity extends FragmentActivity implements OnMapReadyCallba
                 } else if (location.length() > 0 && location.equalsIgnoreCase("potato")) {
                     latlngs.clear();
                     map.clear();
-                    latlngs.add(new LatLng(38.384408, -100.782269));
-                    latlngs.add(new LatLng(39.683454, -97.666179));
-                    latlngs.add(new LatLng(40.333808, -94.872036));
-                    latlngs.add(new LatLng(39.108344, -94.614585));
-                    latlngs.add(new LatLng(38.181656, -97.339195));
+                    latlngs.add(new LatLng(40.384408, -97.782269));
+                    latlngs.add(new LatLng(39.683454, -99.666179));
+                    latlngs.add(new LatLng(38.333808, -94.872036));
+                    latlngs.add(new LatLng(37.108344, -94.614585));
+                    latlngs.add(new LatLng(36.181656, -104.339195));
                     LatLngBounds.Builder builder = new LatLngBounds.Builder();
                     for (LatLng p : latlngs) {
                         options.position(p);
