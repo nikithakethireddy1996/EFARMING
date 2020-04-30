@@ -67,7 +67,7 @@ public class UserFragment extends Fragment {
         dropdown = (Spinner) root.findViewById(R.id.spinner);
         getDta1();
         newcropBTN = root.findViewById(R.id.newcropBTN);
-        infoBTN=root.findViewById(R.id.infoBTN);
+        infoBTN = root.findViewById(R.id.infoBTN);
         infoBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,7 +99,7 @@ public class UserFragment extends Fragment {
     }
 
 
-    public void getDta(){
+    public void getDta() {
         firebaseFirestore.collection("cropsInfo").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
@@ -108,13 +108,13 @@ public class UserFragment extends Fragment {
                     return;
                 } else {
                     for (DocumentChange documentChange : documentSnapshots.getDocumentChanges()) {
-                        if (dropdown.getSelectedItem().toString().equalsIgnoreCase(documentChange.getDocument().getData().get("Name").toString())){
-                            Intent in=new Intent(getContext(), ViewInfoActivity.class);
-                            in.putExtra("drop_down_amspt",documentChange.getDocument().getData().get("Amount spent").toString());
-                            in.putExtra("drop_down_cname",documentChange.getDocument().getData().get("Name").toString());
-                            in.putExtra("drop_down_pr",documentChange.getDocument().getData().get("Profit").toString());
-                            in.putExtra("drop_down_qn",documentChange.getDocument().getData().get("Quantity").toString());
-                            in.putExtra("drop_down_yrs",documentChange.getDocument().getData().get("Year").toString());
+                        if (dropdown.getSelectedItem().toString().equalsIgnoreCase(documentChange.getDocument().getData().get("Name").toString())) {
+                            Intent in = new Intent(getContext(), ViewInfoActivity.class);
+                            in.putExtra("drop_down_amspt", documentChange.getDocument().getData().get("Amount spent").toString());
+                            in.putExtra("drop_down_cname", documentChange.getDocument().getData().get("Name").toString());
+                            in.putExtra("drop_down_pr", documentChange.getDocument().getData().get("Profit").toString());
+                            in.putExtra("drop_down_qn", documentChange.getDocument().getData().get("Quantity").toString());
+                            in.putExtra("drop_down_yrs", documentChange.getDocument().getData().get("Year").toString());
                             startActivity(in);
                         }
                     }
@@ -122,7 +122,8 @@ public class UserFragment extends Fragment {
             }
         });
     }
-    public void getDta1(){
+
+    public void getDta1() {
         firebaseFirestore.collection("cropsInfo").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(QuerySnapshot documentSnapshots, FirebaseFirestoreException e) {
@@ -133,7 +134,9 @@ public class UserFragment extends Fragment {
                     spinItem1 = new ArrayList<>();
                     spinItem1.add("select");
                     for (DocumentChange documentChange : documentSnapshots.getDocumentChanges()) {
-                        spinItem1.add(documentChange.getDocument().getData().get("Name").toString());
+                        if (documentChange.getDocument().getData().get("Name") != null) {
+                            spinItem1.add(documentChange.getDocument().getData().get("Name").toString());
+                        }
                     }
                     adapter1 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, spinItem1);
                     dropdown.setAdapter(adapter1);
